@@ -1,0 +1,9 @@
+{
+  "id": "kg-quality",
+  "name": "KG Quality",
+  "description": "Shows the latest KGHeartBeat quality assessment and lets users browse historical analysis dates.",
+  "entry": "./index.js",
+  "dependencies": [
+    "https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"
+  ]
+}
