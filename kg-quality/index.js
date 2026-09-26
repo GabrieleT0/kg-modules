@@ -60,14 +60,9 @@ export default async function mount(el, context = {}) {
       @media(max-width:640px) { .kgq-header { align-items:flex-start; } .kgq-link { font-size:12px; } .kgq-chart { height:500px; min-height:420px; } .kgq-overall-wrap { margin-left:0; } }
     </style>
     <section class="kgq" aria-live="polite">
-<!--
-<div class="kgq-header">
-  <h2>${escapeHTML(kgName)} Quality </h2>
-  <a class="kgq-link" target="_blank" rel="noopener noreferrer">
-    Open this KG in KGHeartBeat <span aria-hidden="true">↗</span>
-  </a>
-</div>
--->
+      <div class="kgq-header">
+        <h2>${escapeHTML(kgName)} Quality</h2>
+      </div>
       <p class="kgq-muted kgq-loading" style="margin-top:18px">Loading quality history…</p>
       <div class="kgq-content" hidden>
         <div class="kgq-toolbar">
@@ -93,9 +88,6 @@ export default async function mount(el, context = {}) {
   `;
 
   const root = el.querySelector(".kgq");
-  //const kgPageLink = root.querySelector(".kgq-link");
-  //if (kgId) kgPageLink.href = `https://kgheartbeat.di.unisa.it/kg/${encodeURIComponent(kgId)}`;
-  //else kgPageLink.hidden = true;
   try {
     if (!kgId) throw new Error("No kgId was provided in the module context.");
     const [payload] = await Promise.all([fetchQualityHistory(kgId), ensureECharts()]);
